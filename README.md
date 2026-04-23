@@ -98,8 +98,8 @@ notes_app/
 ### Регистрация
 
 ```bash
-curl -X POST http://127.0.0.1:8002/api/register/ \
- -H "Content-Type: application/json" \
+curl -X POST http://127.0.0.1:8002/api/register/ 
+ -H "Content-Type: application/json" 
  -d '{"username": "user", "password": "qwerty123"}'
 ```
 
