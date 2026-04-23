@@ -1,7 +1,28 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
-from django.utils import timezone
+
+
+
+
+class Category(models.Model):
+    """Модель категории для группировки заметок"""
+    name = models.CharField('Название категории', max_length=50)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Автор')
+    created_at = models.DateTimeField('Дата создания', auto_now_add=True)
+    
+    class Meta:
+        verbose_name = 'Категория'
+        verbose_name_plural = 'Категории'
+        unique_together = ['name', 'author']
+
+    
+    def __str__(self):
+        return self.name
+
+
+
+
 
 class Note(models.Model):
     """
@@ -18,7 +39,6 @@ class Note(models.Model):
         related_name='notes'
     )
     
-    # Дополнительные поля для удобства
     is_important = models.BooleanField('Важная', default=False)
     color = models.CharField('Цвет', max_length=20, default='white', 
                             choices=[
@@ -29,10 +49,21 @@ class Note(models.Model):
                                 ('pink', 'Розовый'),
                             ])
     
+
+    
+    category = models.ForeignKey(
+        Category, 
+        on_delete=models.SET_NULL, 
+        null=True, 
+        blank=True,
+        verbose_name='Категория',
+        related_name='notes'
+    )
+    
     class Meta:
         verbose_name = 'Заметка'
         verbose_name_plural = 'Заметки'
-        ordering = ['-created_at']  # Сортировка по убыванию даты
+        ordering = ['-created_at']  
     
     def __str__(self):
         return self.title
