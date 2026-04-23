@@ -98,9 +98,9 @@ notes_app/
 ### Регистрация
 
 ```bash
-curl -X POST http://127.0.0.1:8002/api/register/ 
- -H "Content-Type: application/json" 
- -d '{"username": "user", "password": "qwerty123"}'
+curl -X POST http://127.0.0.1:8002/api/register/ \
+  -H "Content-Type: application/json" \
+  -d '{"username": "user", "password": "qwerty123"}'
 ```
 
 ### Вход (с сохранением сессии)
@@ -121,9 +121,9 @@ curl -c cookies.txt http://127.0.0.1:8002/api/csrf/
 
 # Создать заметку
 
-curl -b cookies.txt -X POST http://127.0.0.1:8002/api/notes/create/ 
- -H "Content-Type: application/json" 
- -H "X-CSRFToken: <токен_из_cookies>" 
+curl -b cookies.txt -X POST http://127.0.0.1:8002/api/notes/create/ \
+ -H "Content-Type: application/json" \
+ -H "X-CSRFToken: <токен_из_cookies>" \
  -d '{
 "title": "Тестовая заметка",
 "content": "Содержание",
