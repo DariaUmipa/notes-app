@@ -38,7 +38,7 @@
 
 ## Структура проекта
 
-\`\`\`
+```
 notes_app/
 ├── backend/ # Django API
 │ ├── notes/ # Основное приложение
@@ -72,7 +72,7 @@ notes_app/
 ├── .gitignore
 ├── docker-compose.yml
 └── README.md
-\`\`\`
+```
 
 ## Порты
 
@@ -97,23 +97,23 @@ notes_app/
 
 ### Регистрация
 
-\`\`\`bash
+```bash
 curl -X POST http://127.0.0.1:8002/api/register/ \
  -H "Content-Type: application/json" \
  -d '{"username": "user", "password": "qwerty123"}'
-\`\`\`
+```
 
 ### Вход (с сохранением сессии)
 
-\`\`\`bash
+```bash
 curl -c cookies.txt -X POST http://127.0.0.1:8002/api/login/ \
  -H "Content-Type: application/json" \
  -d '{"username": "user", "password": "qwerty123"}'
-\`\`\`
+```
 
 ### Создание заметки (требуется сессия и CSRF-токен)
 
-\`\`\`bash
+```bash
 
 # Получить CSRF-токен
 
@@ -131,35 +131,35 @@ curl -b cookies.txt -X POST http://127.0.0.1:8002/api/notes/create/ \
 "is_important": true,
 "category": null
 }'
-\`\`\`
+```
 
 ## Тестирование
 
 **Бэкенд:**
 
-\`\`\`bash
+```bash
 cd backend
 python manage.py test
-\`\`\`
+```
 
 **Фронтенд:**
 
-\`\`\`bash
+```bash
 cd frontend
 npm test
-\`\`\`
+```
 
 ## Быстрый старт
 
 ### Docker (рекомендуется)
 
-\`\`\`bash
+```bash
 cp backend/.env.example backend/.env
 
 # отредактируйте backend/.env, указав SECRET_KEY
 
 docker compose up --build
-\`\`\`
+```
 
 Открыть: `http://localhost:8081`
 
@@ -167,22 +167,22 @@ docker compose up --build
 
 **Бэкенд:**
 
-\`\`\`bash
+```bash
 cd backend
 python -m venv venv
 venv\Scripts\activate # Windows
 pip install -r requirements.txt
 python manage.py migrate
 python manage.py runserver 8002
-\`\`\`
+```
 
 **Фронтенд:**
 
-\`\`\`bash
+```bash
 cd frontend
 npm install
 npm run dev
-\`\`\`
+```
 
 Открыть: `http://localhost:5173`
 
