@@ -1,4 +1,4 @@
-# 📝 Приложение для заметок
+#  Приложение для заметок
 
 Веб-приложение для создания, организации и хранения личных заметок с цветовыми метками, категориями и статистикой.
 
@@ -121,9 +121,9 @@ curl -c cookies.txt http://127.0.0.1:8002/api/csrf/
 
 # Создать заметку
 
-curl -b cookies.txt -X POST http://127.0.0.1:8002/api/notes/create/ \
- -H "Content-Type: application/json" \
- -H "X-CSRFToken: <токен_из_cookies>" \
+curl -b cookies.txt -X POST http://127.0.0.1:8002/api/notes/create/ 
+ -H "Content-Type: application/json" 
+ -H "X-CSRFToken: <токен_из_cookies>" 
  -d '{
 "title": "Тестовая заметка",
 "content": "Содержание",
