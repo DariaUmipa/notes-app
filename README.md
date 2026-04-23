@@ -47,7 +47,7 @@ notes_app/
 │ │ ├── views.py # API views
 │ │ ├── serializers.py # DRF сериализаторы
 │ │ ├── urls.py # Маршруты API
-│ │ └── tests.py # Тесты
+│ │ └── test_pytest.py # Тесты
 │ ├── notes_project/ # Настройки Django
 │ │ ├── settings.py
 │ │ └── urls.py
