@@ -1,0 +1,50 @@
+{% extends 'notes/base.html' %}
+
+{% block title %}Статистика{% endblock %}
+
+{% block content %}
+<div class="statistics">
+    <h1>Моя статистика</h1>
+    
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-value">{{ total_notes }}</div>
+            <div class="stat-label">Всего заметок</div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="stat-value">{{ important_notes }}</div>
+            <div class="stat-label">Важных заметок</div>
+        </div>
+        
+    </div>
+    
+    {% if colors %}
+    <div class="stats-section">
+        <h2>По цветам</h2>
+        <div class="colors-list">
+            {% for color_name, count in colors.items %}
+                <div class="color-stat">
+                    <span class="color-badge color-{{ color_name }}">{{ color_name }}</span>
+                    <span class="color-count">{{ count }}</span>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}
+    
+    {% if dates %}
+        <div class="stats-section">
+            <h2>Активность по дням</h2>
+            <div class="activity-chart">
+                {% for day in dates %}
+                    <div class="chart-bar" style="height: {% widthratio day.count 5 50 %}px;">
+                        <span class="bar-value">{{ day.count }}</span>
+                        <span class="bar-label">{{ day.date }}</span>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

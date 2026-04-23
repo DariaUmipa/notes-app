@@ -1,0 +1,33 @@
+{% extends 'notes/base.html' %}
+
+{% block title %}Вход в систему{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <h1>Вход в систему</h1>
+    
+    <form method="post" class="auth-form">
+        {% csrf_token %}
+        
+        {% for field in form %}
+            <div class="form-group">
+                {{ field.label_tag }}
+                {{ field }}
+                {% if field.errors %}
+                    <div class="field-errors">
+                        {% for error in field.errors %}
+                            <span class="error">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+        
+        <button type="submit" class="btn btn-success">Войти</button>
+    </form>
+    
+    <p class="auth-link">
+        Нет аккаунта? <a href="{% url 'notes:register' %}">Зарегистрируйтесь</a>
+    </p>
+</div>
+{% endblock %}

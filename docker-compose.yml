@@ -1,0 +1,19 @@
+services:
+  backend:
+    build: ./backend
+    container_name: notes_backend1
+    ports:
+      - "8003:8000"
+    volumes:
+      - ./backend:/app
+    env_file:
+      - ./backend/.env
+    command: gunicorn notes_project.wsgi:application --bind 0.0.0.0:8000
+
+  frontend:
+    build: ./frontend
+    container_name: notes_frontend1
+    ports:
+      - "8081:80"
+    depends_on:
+      - backend
