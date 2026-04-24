@@ -78,7 +78,7 @@ notes_app/
 
 | Сервис              | Порт                    |
 | ------------------- | ----------------------- |
-| Docker (приложение) | `http://localhost:8081` |
+| Docker (приложение) | `http://localhost` |
 | Docker (бэкенд)     | `http://localhost:8003` |
 | Локально (бэкенд)   | `http://localhost:8002` |
 | Локально (фронтенд) | `http://localhost:5173` |
@@ -161,7 +161,7 @@ cp backend/.env.example backend/.env
 docker compose up --build
 ```
 
-Открыть: `http://localhost:8081`
+Открыть: `http://localhost`
 
 ### Локальный запуск
 
