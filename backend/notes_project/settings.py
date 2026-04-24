@@ -93,7 +93,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://localhost:8002",
     "http://localhost:8003",
-    "http://localhost:8081",
+    "http://localhost",
 ]
 CORS_ALLOW_CREDENTIALS = True
 
@@ -101,7 +101,7 @@ CSRF_TRUSTED_ORIGINS = [
     "http://localhost:5173",
     "http://localhost:8002",
     "http://localhost:8003",
-    "http://localhost:8081",
+    "http://localhost",
 ]
 CSRF_COOKIE_HTTPONLY = False
 CSRF_COOKIE_SAMESITE = 'Lax'
